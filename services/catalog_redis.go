@@ -26,7 +26,7 @@ func (s catalogServiceRedis) GetProducts() (products []Product, err error) {
 	//Redis GET
 	if productJson, err := s.redisClient.Get(context.Background(), key).Result(); err == nil {
 		if json.Unmarshal([]byte(productJson), &products) == nil {
-			fmt.Println("redis")
+			fmt.Println("NewCatalogServiceRedis : redis")
 			return products, nil
 		}
 	}
@@ -50,6 +50,6 @@ func (s catalogServiceRedis) GetProducts() (products []Product, err error) {
 		s.redisClient.Set(context.Background(), key, string(data), time.Second*10)
 	}
 
-	fmt.Println("database")
+	fmt.Println("NewCatalogServiceRedis : database")
 	return products, nil
 }

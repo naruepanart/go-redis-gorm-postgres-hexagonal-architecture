@@ -26,7 +26,7 @@ func (h catalogHandlerRedis) GetProducts(c *fiber.Ctx) error {
 
 	// Redis GET
 	if responseJson, err := h.redisClient.Get(context.Background(), key).Result(); err == nil {
-		fmt.Println("redis")
+		fmt.Println("NewCatalogHanlderRedis : redis")
 		c.Set("Content-Type", "application/json")
 		return c.SendString(responseJson)
 	}
@@ -47,6 +47,6 @@ func (h catalogHandlerRedis) GetProducts(c *fiber.Ctx) error {
 		h.redisClient.Set(context.Background(), key, string(data), time.Second*10)
 	}
 
-	fmt.Println("database")
+	fmt.Println("NewCatalogHanlderRedis : database")
 	return c.JSON(response)
 }

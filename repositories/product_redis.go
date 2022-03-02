@@ -30,7 +30,7 @@ func (r productRepositoryRedis) GetProducts() (products []product, err error) {
 	if err == nil {
 		err = json.Unmarshal([]byte(productsJson), &products)
 		if err == nil {
-			fmt.Println("redis")
+			fmt.Println("NewProductRepositoryRedis : redis")
 			return products, nil
 		}
 	}
@@ -52,6 +52,6 @@ func (r productRepositoryRedis) GetProducts() (products []product, err error) {
 		return nil, err
 	}
 
-	fmt.Println("database")
+	fmt.Println("NewProductRepositoryRedis : database")
 	return products, nil
 }
