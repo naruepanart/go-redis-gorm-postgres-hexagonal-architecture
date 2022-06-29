@@ -1,1 +1,1 @@
-# golang-redis-gorm-postgres
+# go-redis-gorm-postgres-hexagonal-architecture
